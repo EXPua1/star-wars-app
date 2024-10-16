@@ -1,0 +1,41 @@
+@font-face {
+  font-family: jedi;
+  src: url(../../fonts/Starjedi.ttf);
+}
+
+@font-face {
+  font-family: jedi-outline;
+  src: url(../../fonts/Starjhol.ttf);
+}
+
+@font-face {
+  font-family: jedi-subtitle;
+  src: url(../../fonts/TypoGroteskDemo.otf);
+}
+
+/* @font-face {
+  font-family: biko;
+  src: url(../fonts/Biko_Regular.otf);
+} */
+
+.logo {
+  text-align: center;
+}
+.title {
+  color: #ffee58;
+  font-family: jedi-outline;
+  font-size: 4em;
+  letter-spacing: 0.05em;
+}
+.subtitle {
+  font-family: jedi-subtitle;
+  font-size: 0.75em;
+  margin-top: -1em;
+  margin-bottom: -2em;
+  color: #fff;
+  letter-spacing: 0.75em;
+}
+
+header {
+  height: 200px;
+}
