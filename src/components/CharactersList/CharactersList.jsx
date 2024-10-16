@@ -3,8 +3,9 @@ import css from "./CharactersList.module.css";
 import { Link, useLocation } from "react-router-dom";
 
 const CharactersList = ({ characters }) => {
-  const location = useLocation();
-
+  if (characters.length === 0) {
+    return <div>No characters available</div>; // Убедитесь, что текст совпадает
+  }
   return (
     <ul className={css.list}>
       {characters.map((character) => (

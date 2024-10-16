@@ -7,13 +7,16 @@
 
 .list img {
   width: 100%;
+  border-radius: 60px;
 }
 
 .item {
   width: 100%;
+  border-radius: 8px;
 }
 .imageWrapper {
   position: relative; /* Позволяет позиционировать дочерние элементы */
+  border-radius: 16px;
 }
 .overlayText {
   position: absolute;
