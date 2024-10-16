@@ -6,13 +6,13 @@ const HomeList = () => {
     <ul className={css.list}>
       <li className={css.item}>
         <div className={css.imageWrapper}>
-          <img src="/public/images/darth-vader.jpeg" alt="" />
+          <img src="/images/darth-vader.jpeg" alt="" />
           <span className={css.overlayText}>Characters</span>
         </div>
       </li>
       <li className={css.item}>
         <div className={css.imageWrapper}>
-          <img src="/public/images/darth-vader.jpeg" alt="" />
+          <img src="/images/darth-vader.jpeg" alt="" />
           <span className={css.overlayText}>Characters</span>
         </div>
       </li>
