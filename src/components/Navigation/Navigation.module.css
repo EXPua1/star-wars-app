@@ -1,0 +1,28 @@
+.navigation {
+  display: flex;
+}
+.navigation li span {
+  margin: 0 10px;
+  color: gray;
+}
+
+@font-face {
+  font-family: "baki";
+  src: url(../../fonts/TypoGroteskDemo.otf);
+}
+.navigation a {
+  text-decoration: none; /* Убирает подчеркивание ссылок */
+  color: #007bff; /* Цвет текста ссылки */
+  font-weight: bold; /* Жирный текст */
+  padding: 5px 10px; /* Добавляет отступы вокруг ссылок */
+  border-radius: 5px; /* Скругленные углы */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Анимация наводки */
+  font-family: "baki", sans-serif;
+}
+.navigation a.previous {
+  color: #007bff;
+}
+
+.navigation a.current {
+  color: #ff0000;
+}

@@ -1,0 +1,41 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.description {
+  text-align: center;
+  background-color: #ffee58;
+  color: black;
+  padding: 15px;
+}
+.item {
+  flex: 1 1 calc(20% - 20px);
+  max-width: 200px;
+}
+
+@media (max-width: 1200px) {
+  .item {
+    flex: 1 1 calc(25% - 20px);
+  }
+}
+
+@media (max-width: 900px) {
+  .item {
+    flex: 1 1 calc(33.33% - 20px);
+  }
+}
+
+@media (max-width: 600px) {
+  .item {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 400px) {
+  .item {
+    flex: 1 1 100%;
+  }
+}

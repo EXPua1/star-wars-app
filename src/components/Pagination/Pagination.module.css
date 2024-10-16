@@ -1,0 +1,26 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.pagination button {
+  background-color: #f0c674; /* Цвет кнопки */
+  color: #000; /* Цвет текста */
+  border: 2px solid #333; /* Цвет рамки */
+  border-radius: 5px; /* Скругление углов */
+  padding: 10px 20px; /* Отступы */
+  margin: 0 10px; /* Отступы между кнопками */
+  cursor: pointer; /* Указатель при наведении */
+  font-size: 16px; /* Размер шрифта */
+  transition: background-color 0.3s; /* Плавный переход */
+}
+
+.pagination button:hover {
+  background-color: #d9a95f; /* Цвет кнопки при наведении */
+}
+
+.pagination button:disabled {
+  background-color: #ccc; /* Цвет кнопки, когда отключена */
+  cursor: not-allowed; /* Указатель, когда отключена */
+}
