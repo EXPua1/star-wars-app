@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import css from "./Navigation.module.css";
 
-const Navigation = () => {
+const Navigation = ({ characterName }) => {
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((item) => item);
 
@@ -23,16 +23,19 @@ const Navigation = () => {
         </li>
         {pathnames.map((value, index) => {
           const to = `/${pathnames.slice(0, index + 1).join("/")}`;
+          const isLastItem = index === pathnames.length - 1; // Проверка на последний элемент
           return (
             <li key={to}>
               <span className={css.separator}>/</span>
               <NavLink
                 to={to}
-                className={({ isActive }) =>
-                  isActive ? css.current : css.previous
+                className={
+                  ({ isActive }) => (isLastItem ? css.current : css.previous) // Делает активным только последний элемент
                 }
               >
-                {capitalizeFirstLetter(value)}
+                {isLastItem && characterName
+                  ? characterName // Используем имя персонажа для последнего элемента
+                  : capitalizeFirstLetter(value)}{" "}
               </NavLink>
             </li>
           );

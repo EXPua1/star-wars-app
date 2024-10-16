@@ -3,6 +3,8 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  transition: opacity 0.3s ease;
+  min-height: 300px;
 }
 
 .description {
@@ -14,6 +16,10 @@
 .item {
   flex: 1 1 calc(20% - 20px);
   max-width: 200px;
+}
+.link {
+  text-decoration: none; /* Убирает подчеркивание */
+  color: inherit; /* Унаследовать цвет текста от родителя */
 }
 
 @media (max-width: 1200px) {

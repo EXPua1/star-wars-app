@@ -3,10 +3,11 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import "modern-normalize";
 import "./index.css";
-import { Container, Header, Navigation, Section } from "./components";
+import { Container, Header, Navigation } from "./components";
 import HomePage from "./pages/HomePage";
 import NotFound from "./pages/NotFound";
 import CharactersPage from "./pages/CharactersPage";
+import CharacterDetailPage from "./pages/CharactersDetailPage"; // Импортируйте страницу деталей персонажа
 
 const availableRoutes = [
   { path: "/", name: "Home" },
@@ -28,9 +29,11 @@ const App = () => {
       </Container>
 
       <Routes>
-        <Route path="/" element={<HomePage />}></Route>
-        <Route path="/characters" element={<CharactersPage />}></Route>
-        <Route path="*" element={<NotFound />}></Route>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/characters" element={<CharactersPage />} />
+        <Route path="/characters/:id" element={<CharacterDetailPage />} />{" "}
+        {/* Добавьте маршрут для персонажа */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
   );

@@ -13,3 +13,17 @@ export const getCharacter = async (id) => {
   const { data } = await axios.get(`https://sw-api.starnavi.io/people/${id}`);
   return data;
 };
+
+export const getMovieById = async (filmId) => {
+  const { data } = await axios.get(
+    `https://sw-api.starnavi.io/films/${filmId}`
+  );
+  return data;
+};
+
+export const getShipById = async (shipId) => {
+  const { data } = await axios.get(
+    `https://sw-api.starnavi.io/starships/${shipId}`
+  );
+  return data;
+};
