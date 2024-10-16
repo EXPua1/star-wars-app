@@ -26,3 +26,31 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.stars {
+  background: url(http://www.script-tutorials.com/demos/360/images/stars.png)
+    top center #000;
+  z-index: -1;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.twilling {
+  background: url(http://www.script-tutorials.com/demos/360/images/twinkling.png)
+    top center;
+  animation: move-twink-back 200s linear infinite;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Обеспечивает размещение позади других элементов */
+}
+
+@keyframes move-twink-back {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -10000px 5000px;
+  }
+}
