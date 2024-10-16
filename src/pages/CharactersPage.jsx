@@ -2,48 +2,55 @@ import React, { useEffect, useState } from "react";
 import { getCharacters } from "../services/star-wars-api";
 import { CharactersList, Container } from "../components";
 import Pagination from "../components/Pagination/Pagination";
+import { useNavigate } from "react-router-dom";
 
 const CharactersPage = () => {
-  const [characters, setCharacters] = useState([]); // состояние для данных
-  const [nextPage, setNextPage] = useState(null); // состояние для следующей страницы
-  const [prevPage, setPrevPage] = useState(null); // состояние для предыдущей страницы
+  const navigate = useNavigate();
+  const [characters, setCharacters] = useState([]); // State for character data
+  const [nextPage, setNextPage] = useState(null); // State for the next page URL
+  const [prevPage, setPrevPage] = useState(null); // State for the previous page URL
+  const [currentPage, setCurrentPage] = useState(1); // State for the current page number
 
   const fetchCharacters = async (url) => {
     try {
-      const data = await getCharacters(url);
-      setCharacters(data.results); // обновляем состояние с полученными персонажами
-      setNextPage(data.next); // обновляем ссылку на следующую страницу
-      setPrevPage(data.previous); // обновляем ссылку на предыдущую страницу
+      const data = await getCharacters(url); // Fetch character data from the API
+      setCharacters(data.results); // Update state with fetched characters
+      setNextPage(data.next); // Update state with the next page URL
+      setPrevPage(data.previous); // Update state with the previous page URL
+
+      const pageNum = new URL(url).searchParams.get("page") || 1; // Extract current page number from the URL
+      setCurrentPage(Number(pageNum)); // Update current page state
+      navigate(`/characters?page=${pageNum}`); // Update the address bar with the current page
     } catch (error) {
-      console.log(error);
+      console.log(error); // Log any errors during fetching
     }
   };
 
-  // Загрузка первой страницы при монтировании компонента
+  // Load the first page when the component mounts
   useEffect(() => {
-    fetchCharacters("https://sw-api.starnavi.io/people/"); // начальный URL
+    fetchCharacters("https://sw-api.starnavi.io/people/"); // Initial API call to fetch the first page of characters
   }, []);
 
   const handleNextPage = () => {
     if (nextPage) {
-      fetchCharacters(nextPage);
+      fetchCharacters(nextPage); // Fetch the next page of characters
     }
   };
 
   const handlePrevPage = () => {
     if (prevPage) {
-      fetchCharacters(prevPage);
+      fetchCharacters(prevPage); // Fetch the previous page of characters
     }
   };
 
   return (
     <Container>
-      <CharactersList characters={characters} />
+      <CharactersList characters={characters} />{" "}
       <Pagination
-        nextPage={nextPage}
-        prevPage={prevPage}
-        onNext={handleNextPage}
-        onPrev={handlePrevPage}
+        nextPage={nextPage} // Pass the next page URL to Pagination
+        prevPage={prevPage} // Pass the previous page URL to Pagination
+        onNext={handleNextPage} // Function to handle next page navigation
+        onPrev={handlePrevPage} // Function to handle previous page navigation
       />
     </Container>
   );

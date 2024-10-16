@@ -1,16 +1,15 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://sw-api.starnavi.io/";
-
 export const getCharacters = async (url) => {
-  const { data } = await axios.get(url); // используем переданный URL
+  const { data } = await axios.get(url);
   return {
-    results: data.results, // возвращаем массив персонажей
-    next: data.next, // возвращаем ссылку на следующую страницу
-    previous: data.previous, // возвращаем ссылку на предыдущую страницу
+    results: data.results,
+    next: data.next,
+    previous: data.previous,
   };
 };
+
 export const getCharacter = async (id) => {
-  const { data } = await axios.get(`/people/${id}`);
+  const { data } = await axios.get(`https://sw-api.starnavi.io/people/${id}`);
   return data;
 };

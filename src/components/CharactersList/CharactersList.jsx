@@ -8,7 +8,7 @@ const CharactersList = ({ characters }) => {
         <li className={css.item} key={character.id}>
           <div>
             <img
-              src={`/public/images/characters/${character.id}.jpg`}
+              src={`public/images/characters/${character.id}.jpg`}
               alt={character.name}
               onError={(e) => {
                 e.target.onerror = null;
