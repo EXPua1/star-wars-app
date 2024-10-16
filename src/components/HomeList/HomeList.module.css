@@ -1,0 +1,36 @@
+.list {
+  display: flex;
+
+  justify-content: center;
+  gap: 30px;
+}
+
+.list img {
+  width: 100%;
+}
+
+.item {
+  width: 100%;
+}
+.imageWrapper {
+  position: relative; /* Позволяет позиционировать дочерние элементы */
+}
+.overlayText {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.2em; /* Размер текста будет зависеть от ширины экрана */
+  font-family: "jedi", sans-serif;
+  color: #e53935;
+}
+
+@font-face {
+  font-family: "jedi", sans-serif;
+  src: url(../../fonts/Starjedi.ttf);
+}
