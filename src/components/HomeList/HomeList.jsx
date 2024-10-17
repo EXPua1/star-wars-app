@@ -8,18 +8,18 @@ const HomeList = () => {
       <li className={css.item}>
         <Link to="/characters">
           <div className={css.imageWrapper}>
-            <img src="/images/darth-vader.jpeg" alt="" />
+            <img src="/images/darth-vader.jpeg" alt="Characters" />
             <span className={css.overlayText}>Characters</span>
           </div>
         </Link>
       </li>
-      <li className={css.item}>
-        <Link to="/characters">
-          <div className={css.imageWrapper}>
-            <img src="/images/darth-vader.jpeg" alt="" />
-            <span className={css.overlayText}>Characters</span>
-          </div>
-        </Link>
+      {/* Второй элемент списка с неактивным состоянием и боковым текстом */}
+      <li className={`${css.item} ${css.disabled}`}>
+        <div className={css.imageWrapper}>
+          <img src="/images/ship.avif" alt="Not Available" />
+          <span className={css.sideOverlayText}>soon</span>{" "}
+          {/* Боковой текст */}
+        </div>
       </li>
     </ul>
   );

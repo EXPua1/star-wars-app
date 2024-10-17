@@ -1,29 +1,56 @@
 .list {
   display: flex;
-
   justify-content: center;
   gap: 30px;
 }
+
 .list :hover {
   color: #e8dfdf;
   text-shadow: 0px -2px 4px #f3eeee, 0px -2px 10px #7f8007,
     0px -10px 20px #b98435, 0px -20px 40px #80380d;
 }
 
-.list img {
-  width: 100%;
-  border-radius: 60px;
+.item {
+  max-width: 100%;
+
+  height: 250px; /* Фиксированная высота для всех элементов */
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden; /* Скрывает выходящие за пределы изображения */
 }
 
-.item {
+.item img {
   width: 100%;
-  border-radius: 8px;
+  height: 100%;
+  object-fit: cover; /* Изображение будет масштабироваться, сохраняя пропорции */
+  border-radius: 38px;
+}
+
+.disabled {
+  pointer-events: none;
+  filter: grayscale(100%);
+  opacity: 0.5;
+}
+
+.sideOverlayText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-40deg); /* Поворот текста */
+  color: white;
+  font-size: 24px;
+  text-shadow: 1px 1px 2px black;
+  white-space: nowrap;
+  font-family: "jedi", sans-serif;
 }
 
 .imageWrapper {
-  position: relative; /* Позволяет позиционировать дочерние элементы */
+  position: relative;
+  width: 100%;
+  height: 100%;
   border-radius: 16px;
 }
+
 .overlayText {
   position: absolute;
   bottom: 10px;
@@ -34,7 +61,7 @@
   padding: 5px;
   border-radius: 5px;
   text-align: center;
-  font-size: 1.2em; /* Размер текста будет зависеть от ширины экрана */
+  font-size: 1.2em;
   font-family: "jedi", sans-serif;
   color: #e53935;
 }
