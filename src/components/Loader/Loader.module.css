@@ -1,7 +1,8 @@
 .loader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  transition: opacity 0.3s ease;
+  position: absolute; /* Абсолютное позиционирование */
+  top: 50%; /* Центрировать по вертикали */
+  left: 50%; /* Центрировать по горизонтали */
+  transform: translate(-50%, -50%); /* Сдвинуть центр к середине элемента */
+  z-index: 1000; /* Убедитесь, что загрузчик сверху */
+  /* Другие стили, если необходимо */
 }

@@ -22,6 +22,12 @@ const CharacterGraph = ({ character, films, ships }) => {
       data: { label: `Name: ${character.name}` },
       position: { x: 250, y: 0 }, // Основной узел
       draggable: true,
+      style: {
+        background: "#ffee58",
+        color: "black",
+        border: "1px solid #333",
+        borderRadius: "15px",
+      }, // Цвет узла корабля
     });
 
     // Расположение узлов фильмов в ряд
@@ -34,6 +40,12 @@ const CharacterGraph = ({ character, films, ships }) => {
           y: 100,
         },
         draggable: true,
+        style: {
+          background: "#007bff",
+          color: "#fff",
+          border: "1px solid #333",
+          borderRadius: "15px",
+        }, // Цвет узла корабля
       });
     });
 
@@ -47,6 +59,12 @@ const CharacterGraph = ({ character, films, ships }) => {
           y: 200,
         },
         draggable: true,
+        style: {
+          background: "#e53935",
+          color: "#fff",
+          border: "1px solid #333",
+          borderRadius: "15px",
+        }, // Цвет узла корабля
       });
     });
 
@@ -76,8 +94,8 @@ const CharacterGraph = ({ character, films, ships }) => {
         className={css.flow}
         nodes={nodes}
         edges={edges}
-        fitView
-        draggable={true}
+        draggable={false}
+        defaultViewport={{ x: 200, y: 100, zoom: 1 }}
       >
         <Background variant="none" />
         <Controls
