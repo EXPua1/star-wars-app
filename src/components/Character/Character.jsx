@@ -95,7 +95,7 @@ const CharacterGraph = ({ character, films, ships }) => {
         nodes={nodes}
         edges={edges}
         draggable={false}
-        defaultViewport={{ x: 200, y: 100, zoom: 1 }}
+        defaultViewport={{ x: 200, y: 100, zoom: 0.75 }}
       >
         <Background variant="none" />
         <Controls
