@@ -28,7 +28,7 @@ const CharactersPage = () => {
   const fetchCharacters = async (url) => {
     setIsTransitioning(true); // Set transitioning state
     setIsLoading(true); // Set loading state
-    setIsDataLoaded(true);
+
     try {
       const data = await getCharacters(url); // Fetch character data from the API
       setNextPage(data.next); // Update state with the next page URL
