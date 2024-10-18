@@ -1,8 +1,35 @@
-# React + Vite
+# 🌌 STAR WARS GALLERY
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**A React application that showcases Star Wars characters, detailing their appearances in various films. Explore the Star Wars universe interactively!**
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Installation
+
+To get started with the project, follow these steps:
+
+1. **Clone the repository to your local machine:**
+
+   git clone https://github.com/EXPua1/star-wars-app.git
+   cd star-wars-app
+
+2. **Install the dependencies:**
+
+   npm install
+
+   Then, open your browser and navigate to http://localhost:3000 (check your address) to view the application.
+
+## 🧪 Running Tests
+
+To run the tests, use:
+npm test
+
+## 🛠️ Technologies Used
+
+This project was built using the following technologies:
+
+React: A JavaScript library for building dynamic user interfaces.
+React Flow: A flexible library for creating node-based UIs.
+React Router: (if applicable) For client-side routing.
+CSS Modules: Scoped CSS styles for component-specific design.
+Other Dependencies: Listed in the package.json file.

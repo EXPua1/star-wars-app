@@ -7,9 +7,9 @@ const Loader = () => {
   return (
     <div className={css.loader}>
       <Circles
-        height={80} // Указываем высоту
-        width={80} // Указываем ширину
-        color="#00BFFF" // Цвет загрузчика
+        height={80}
+        width={80}
+        color="#00BFFF"
         ariaLabel="circles-loading"
         visible={true}
       />

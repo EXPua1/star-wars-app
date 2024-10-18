@@ -23,19 +23,19 @@ const Navigation = ({ characterName }) => {
         </li>
         {pathnames.map((value, index) => {
           const to = `/${pathnames.slice(0, index + 1).join("/")}`;
-          const isLastItem = index === pathnames.length - 1; // Проверка на последний элемент
+          const isLastItem = index === pathnames.length - 1; // checking for last element
           return (
             <li key={to}>
               <span className={css.separator}>/</span>
               <NavLink
                 to={to}
                 className={
-                  ({ isActive }) => (isLastItem ? css.current : css.previous) // Делает активным только последний элемент
+                  ({ isActive }) => (isLastItem ? css.current : css.previous) //makes active last element
                 }
               >
                 {isLastItem && characterName
-                  ? characterName // Используем имя персонажа для последнего элемента
-                  : capitalizeFirstLetter(value)}{" "}
+                  ? characterName // using name of character for last element
+                  : capitalizeFirstLetter(value)}
               </NavLink>
             </li>
           );

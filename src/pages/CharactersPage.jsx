@@ -28,6 +28,7 @@ const CharactersPage = () => {
   const fetchCharacters = async (url) => {
     setIsTransitioning(true); // Set transitioning state
     setIsLoading(true); // Set loading state
+    setIsDataLoaded(true);
     try {
       const data = await getCharacters(url); // Fetch character data from the API
       setNextPage(data.next); // Update state with the next page URL
@@ -42,8 +43,9 @@ const CharactersPage = () => {
         setCharacters(data.results); // Update character data
         setIsDataLoaded(true); // Set data loaded state to true
         setIsTransitioning(false); // Reset transitioning state
-      }, 500); // Delay for smoothness
+      }, 1); // Delay for smoothness
     } catch (error) {
+      setIsTransitioning(false);
       console.log(error); // Log any errors during fetching
     } finally {
       setIsLoading(false); // Reset loading state
@@ -56,10 +58,12 @@ const CharactersPage = () => {
     fetchCharacters(initialUrl);
   }, []);
 
-  // Restore scroll position after updating characters
+  // Restore scroll position after characters have been updated
   useEffect(() => {
-    restoreScrollPosition();
-  }, [characters]);
+    if (isDataLoaded) {
+      restoreScrollPosition();
+    }
+  }, [characters, isDataLoaded]);
 
   const handleNextPage = () => {
     if (nextPage) {
@@ -77,10 +81,15 @@ const CharactersPage = () => {
 
   return (
     <Container>
-      {isLoading && !isTransitioning && <Loader />}{" "}
+      {isLoading && !isTransitioning && <Loader />}
       {/* Show Loader during initial load */}
-      <CharactersList characters={characters} /> {/* Show current characters */}
-      {/* Show Pagination only after data is loaded */}
+      {isDataLoaded ? ( // Проверяем, загрузка завершена
+        characters.length > 0 ? ( // Проверяем, есть ли персонажи
+          <CharactersList characters={characters} /> // Отображаем список персонажей
+        ) : (
+          <p>No characters available</p>
+        )
+      ) : null}
       {isDataLoaded && (
         <Pagination
           nextPage={nextPage}
@@ -89,9 +98,8 @@ const CharactersPage = () => {
           onPrev={handlePrevPage}
         />
       )}
-      {isTransitioning && <Loader />} {/* Show Loader when loading next page */}
+      {isTransitioning && <Loader />}
       {isTransitioning && <div style={{ height: "50px" }} />}{" "}
-      {/* Keep space for loader */}
     </Container>
   );
 };

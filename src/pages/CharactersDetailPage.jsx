@@ -13,7 +13,7 @@ const CharacterDetailPage = () => {
   const [films, setFilms] = useState([]);
   const [ships, setShips] = useState(null);
   const location = useLocation();
-  const characterName = location.state?.name; // Получаем имя персонажа из state
+  const characterName = location.state?.name; // taking name of character from state
 
   useEffect(() => {
     const fetchCharacter = async () => {
@@ -25,12 +25,12 @@ const CharacterDetailPage = () => {
           characterData.films.map((filmId) => getMovieById(filmId))
         );
         setFilms(filmData);
-        console.log(filmData); // Логирование данных о фильмах
+        console.log(filmData); // log film for check
         const shipData = await Promise.all(
           characterData.starships.map((shipId) => getShipById(shipId))
         );
-        setShips(shipData); // Сохранение данных о кораблях в состоянии
-        console.log(shipData); // Логирование данных о кораблях
+        setShips(shipData); // adding ships to state
+        console.log(shipData); // log ships for check
       } catch (error) {}
     };
     fetchCharacter();

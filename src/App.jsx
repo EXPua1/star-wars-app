@@ -7,7 +7,7 @@ import { Container, Header, Navigation } from "./components";
 import HomePage from "./pages/HomePage";
 import NotFound from "./pages/NotFound";
 import CharactersPage from "./pages/CharactersPage";
-import CharacterDetailPage from "./pages/CharactersDetailPage"; // Импортируйте страницу деталей персонажа
+import CharacterDetailPage from "./pages/CharactersDetailPage"; //
 
 const availableRoutes = [
   { path: "/", name: "Home" },
@@ -31,8 +31,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/characters" element={<CharactersPage />} />
-        <Route path="/characters/:id" element={<CharacterDetailPage />} />{" "}
-        {/* Добавьте маршрут для персонажа */}
+        <Route path="/characters/:id" element={<CharacterDetailPage />} />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>

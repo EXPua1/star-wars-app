@@ -1,19 +1,30 @@
 import { render } from "@testing-library/react";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
-import CharactersList from "./CharactersList";
+import CharactersPage from "../../pages/CharactersPage";
+import * as api from "../../services/star-wars-api"; // Путь к вашему API
 import React from "react";
+import CharactersList from "./CharactersList";
 
-test("renders CharactersList component", () => {
-  const { getByText } = render(
-    <MemoryRouter initialEntries={["/"]}>
+jest.mock("../../services/star-wars-api");
+
+test("renders CharactersPage component with no characters", async () => {
+  // mock getCharacters
+  api.getCharacters.mockResolvedValueOnce({
+    results: [],
+    next: null,
+    previous: null,
+  });
+
+  const { findByText } = render(
+    <MemoryRouter initialEntries={["/characters"]}>
       <Routes>
-        <Route path="/" element={<CharactersList characters={[]} />} />
+        <Route path="/characters" element={<CharactersPage />} />
       </Routes>
     </MemoryRouter>
   );
 
-  // check that the loading message is displayed
-  expect(getByText(/No characters available/i)).toBeInTheDocument(); // Замените текст на тот, который ожидаете
+  // wait for the text to be in the document
+  expect(await findByText(/No characters available/i)).toBeInTheDocument();
 });
 
 test("renders characters when available", () => {

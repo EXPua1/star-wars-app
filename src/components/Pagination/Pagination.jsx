@@ -1,5 +1,5 @@
 import React from "react";
-import css from "./Pagination.module.css"; // Импортируйте стили
+import css from "./Pagination.module.css";
 
 const Pagination = ({ nextPage, prevPage, onNext, onPrev }) => {
   return (

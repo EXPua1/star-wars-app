@@ -23,8 +23,8 @@ a {
   max-width: 200px;
 }
 .link {
-  text-decoration: none; /* Убирает подчеркивание */
-  color: inherit; /* Унаследовать цвет текста от родителя */
+  text-decoration: none;
+  color: inherit;
 }
 
 @media (max-width: 1200px) {

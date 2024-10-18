@@ -13,12 +13,11 @@ const HomeList = () => {
           </div>
         </Link>
       </li>
-      {/* Второй элемент списка с неактивным состоянием и боковым текстом */}
+
       <li className={`${css.item} ${css.disabled}`}>
         <div className={css.imageWrapper}>
           <img src="/images/ship.avif" alt="Not Available" />
           <span className={css.sideOverlayText}>soon</span>{" "}
-          {/* Боковой текст */}
         </div>
       </li>
     </ul>

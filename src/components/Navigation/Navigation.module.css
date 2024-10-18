@@ -11,12 +11,12 @@
   src: url(../../fonts/TypoGroteskDemo.otf);
 }
 .navigation a {
-  text-decoration: none; /* Убирает подчеркивание ссылок */
-  color: #007bff; /* Цвет текста ссылки */
-  font-weight: bold; /* Жирный текст */
-  padding: 5px 10px; /* Добавляет отступы вокруг ссылок */
-  border-radius: 5px; /* Скругленные углы */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Анимация наводки */
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
   font-family: "baki", sans-serif;
   font-size: 25px;
 }

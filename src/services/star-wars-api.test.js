@@ -12,7 +12,7 @@ const mock = new AxiosMockAdapter(axios);
 
 describe("Star Wars API functions", () => {
   afterEach(() => {
-    mock.reset(); // Сбрасываем моки после каждого теста
+    mock.reset(); // reset mock
   });
 
   test("getCharacters should return character data", async () => {
