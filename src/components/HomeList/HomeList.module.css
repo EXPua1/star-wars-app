@@ -3,6 +3,12 @@
   justify-content: center;
   gap: 30px;
 }
+.list :hover {
+  color: #e8dfdf;
+  text-shadow: 0px -2px 4px #f3eeee, 0px -2px 10px #7f8007,
+    0px -10px 20px #b98435, 0px -20px 40px #80380d;
+}
+
 .item {
   width: calc(50% - 15px);
   border-radius: 8px;
