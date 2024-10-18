@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { getCharacters } from "../services/star-wars-api";
 import { CharactersList, Container, Loader } from "../components";
 import Pagination from "../components/Pagination/Pagination";
@@ -13,6 +13,7 @@ const CharactersPage = () => {
   const [isLoading, setIsLoading] = useState(true); // State to track loading
   const [isDataLoaded, setIsDataLoaded] = useState(false); // State to track if data has loaded
   const [isTransitioning, setIsTransitioning] = useState(false); // State for page transition
+  const scrollPosition = useRef(0); // Ref to save scroll position
 
   const fetchCharacters = async (url) => {
     setIsLoading(true); // Set loading state
@@ -45,15 +46,24 @@ const CharactersPage = () => {
 
   const handleNextPage = () => {
     if (nextPage) {
+      scrollPosition.current = window.scrollY; // Save current scroll position
       fetchCharacters(nextPage); // Fetch the next page of characters
     }
   };
 
   const handlePrevPage = () => {
     if (prevPage) {
+      scrollPosition.current = window.scrollY; // Save current scroll position
       fetchCharacters(prevPage); // Fetch the previous page of characters
     }
   };
+
+  // Restore scroll position after characters have been updated
+  useEffect(() => {
+    if (isDataLoaded) {
+      window.scrollTo(0, scrollPosition.current); // Restore saved scroll position
+    }
+  }, [characters, isDataLoaded]);
 
   return (
     <Container>
