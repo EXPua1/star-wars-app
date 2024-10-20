@@ -3,7 +3,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import "modern-normalize";
 import "./index.css";
-import { Container, Header, Navigation } from "./components";
+import { Container, Footer, Header, Navigation } from "./components";
 
 const pages = {
   HomePage: lazy(() => import("./pages/HomePage")),
@@ -29,14 +29,19 @@ const App = () => {
       <Container>
         <Header />
         {routeExists && <Navigation />}
-      </Container>
 
-      <Routes>
-        <Route path="/" element={<pages.HomePage />} />
-        <Route path="/characters" element={<pages.CharactersPage />} />
-        <Route path="/characters/:id" element={<pages.CharacterDetailPage />} />
-        <Route path="*" element={<pages.NotFound />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<pages.HomePage />} />
+          <Route path="/characters" element={<pages.CharactersPage />} />
+          <Route
+            path="/characters/:id"
+            element={<pages.CharacterDetailPage />}
+          />
+          <Route path="*" element={<pages.NotFound />} />
+        </Routes>
+
+        <Footer />
+      </Container>
     </Suspense>
   );
 };

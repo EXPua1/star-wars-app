@@ -9,3 +9,4 @@ export { default as Navigation } from "./Navigation/Navigation.jsx";
 export { default as Pagination } from "./Pagination/Pagination.jsx";
 export { default as Loader } from "./Loader/Loader.jsx";
 export { default as Character } from "./Character/Character.jsx";
+export { default as Footer } from "./Footer/Footer.jsx";
