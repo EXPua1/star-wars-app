@@ -1,13 +1,16 @@
-import { React, Suspense } from "react";
+import { React, Suspense, lazy } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import "modern-normalize";
 import "./index.css";
 import { Container, Header, Navigation } from "./components";
-import HomePage from "./pages/HomePage";
-import NotFound from "./pages/NotFound";
-import CharactersPage from "./pages/CharactersPage";
-import CharacterDetailPage from "./pages/CharactersDetailPage"; //
+
+const pages = {
+  HomePage: lazy(() => import("./pages/HomePage")),
+  CharactersPage: lazy(() => import("./pages/CharactersPage")),
+  CharacterDetailPage: lazy(() => import("./pages/CharactersDetailPage")),
+  NotFound: lazy(() => import("./pages/NotFound")),
+};
 
 const availableRoutes = [
   { path: "/", name: "Home" },
@@ -22,18 +25,17 @@ const App = () => {
   );
 
   return (
-    <Suspense fallback={<div>Loading</div>}>
+    <Suspense fallback={<div>Loading...</div>}>
       <Container>
         <Header />
         {routeExists && <Navigation />}
       </Container>
 
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/characters" element={<CharactersPage />} />
-        <Route path="/characters/:id" element={<CharacterDetailPage />} />
-
-        <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<pages.HomePage />} />
+        <Route path="/characters" element={<pages.CharactersPage />} />
+        <Route path="/characters/:id" element={<pages.CharacterDetailPage />} />
+        <Route path="*" element={<pages.NotFound />} />
       </Routes>
     </Suspense>
   );
