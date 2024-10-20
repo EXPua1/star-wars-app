@@ -3,7 +3,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import "modern-normalize";
 import "./index.css";
-import { Container, Footer, Header, Navigation } from "./components";
+import { Container, Footer, Header, Loader, Navigation } from "./components";
 
 const pages = {
   HomePage: lazy(() => import("./pages/HomePage")),
@@ -25,7 +25,7 @@ const App = () => {
   );
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loader />}>
       <Container>
         <Header />
         {routeExists && <Navigation />}
