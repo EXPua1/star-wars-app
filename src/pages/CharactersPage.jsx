@@ -61,7 +61,11 @@ const CharactersPage = () => {
   // Restore scroll position after characters have been updated
   useEffect(() => {
     if (isDataLoaded) {
-      window.scrollTo(0, scrollPosition.current); // Restore saved scroll position
+      const timeoutId = setTimeout(() => {
+        window.scrollTo(0, scrollPosition.current); // Restore saved scroll position
+      }, 50);
+
+      return () => clearTimeout(timeoutId);
     }
   }, [characters, isDataLoaded]);
 
